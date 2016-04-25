@@ -1,6 +1,7 @@
 package com.example.android.movieapp;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,8 +16,7 @@ public class MovieDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_details);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         MovieFragmentData mv = new MovieFragmentData();
         getSupportFragmentManager().beginTransaction().add(android.R.id.content,mv).commit();
 
@@ -38,8 +38,8 @@ public class MovieDetails extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
-        }else if (id==R.id.action_search){
+            Intent in = new Intent(MovieDetails.this, About.class);
+            startActivity(in);
             return true;
         }
 
